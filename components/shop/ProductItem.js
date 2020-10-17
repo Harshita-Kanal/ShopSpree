@@ -1,33 +1,43 @@
 import React from "react";
-import { View, Text, Image, Button, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  Button,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+} from "react-native";
 import Colors from "../../constants/Colors";
 
 const ProductItem = (props) => {
   return (
-    <View style={styles.product}>
-      <Image style={styles.image} source={{ uri: props.image }} />
+    <TouchableOpacity onPress={props.onViewDetail}>
+      <View style={styles.product}>
+        <Image style={styles.image} source={{ uri: props.image }} />
 
-      <View style={styles.details}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.price}>Rs. {props.price.toFixed(2)}</Text>
-      </View>
-      <View style={styles.actions}>
-        <View style={styles.btn}>
+        <View style={styles.details}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.price}>Rs. {props.price.toFixed(2)}</Text>
+        </View>
+        <View style={styles.actions}>
+          <View style={styles.btn}>
+            <Button
+              style={styles.btn}
+              title="View Details"
+              color={Colors.primary}
+              onPress={props.onViewDetail}
+            />
+          </View>
+
           <Button
-            style={styles.btn}
-            title="View Details"
+            title="To Cart"
             color={Colors.primary}
-            onPress={props.onViewDetail}
+            onPress={props.onAddToCart}
           />
         </View>
-
-        <Button
-          title="To Cart"
-          color={Colors.primary}
-          onPress={props.onAddToCart}
-        />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -42,6 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 300,
     margin: 20,
+    fontFamily: "sansita-bold",
   },
 
   image: {
@@ -56,11 +67,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     marginVertical: 4,
+    fontFamily: "sansita-bold",
   },
 
   price: {
     fontSize: 14,
     color: "#888",
+    fontFamily: "sansita-bold",
   },
 
   actions: {
