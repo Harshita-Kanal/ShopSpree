@@ -7,12 +7,14 @@ import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import productsReducer from "./store/reducers/products";
 import cartReducer from "./store/reducers/cart";
+import ordersReducer from "./store/reducers/orders";
 import ShopNavigator from "./navigations/ShopNavigator";
 // import * as Font from "./navigations/ShopNavigator";
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
+  orders: ordersReducer,
 });
 
 const fetchFonts = () => {
