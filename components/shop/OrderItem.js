@@ -15,9 +15,7 @@ const OrderItem = (props) => {
         <Button
           color={Colors.primary}
           title="Show Details"
-          onPress={() => {
-            setShowDetails((prevState = !prevState));
-          }}
+          onPress={() => {}}
         />
       </View>
     </View>
@@ -52,7 +50,9 @@ const styles = StyleSheet.create({
     fontFamily: "sansita-bold",
   },
   buttonItem: {
-    width: "40%",
+    // width: "40%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
